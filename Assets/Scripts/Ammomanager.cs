@@ -13,6 +13,7 @@ namespace Ammomanager111
         public TextMeshProUGUI ammodisplay1;
         public TextMeshProUGUI ammodisplay2;
         public TextMeshProUGUI ammodisplay3;
+        public TextMeshProUGUI ammodisplay4;
 
 
         private void Awake()

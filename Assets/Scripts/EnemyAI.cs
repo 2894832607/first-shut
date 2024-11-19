@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using playheart111;
 using System.Collections;
+using enemydie111;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -33,8 +34,10 @@ public class EnemyAI : MonoBehaviour
         ChangeState(new PatrolState()); // 初始状态为巡逻
         animator11 = GetComponent<Animator>();
         SetRandomInitialAnimation();
-    }
 
+
+    }
+   
 
     void Update()
     {
@@ -45,9 +48,9 @@ public class EnemyAI : MonoBehaviour
         IsPlayerInAttackRange();
     }
 
-    private void SetRandomInitialAnimation()
+    public void SetRandomInitialAnimation()
     {
-        int randomAnimation = Random.Range(0, 3); // 随机选择 0, 1, 或 2
+        int randomAnimation = Random.Range(0, 4); // 随机选择 0, 1, 或 2
         switch (randomAnimation)
         {
             case 0:
@@ -60,11 +63,11 @@ public class EnemyAI : MonoBehaviour
                 break;
             case 2:
                 animator11.SetTrigger("CRAWL"); // 触发 CRAWL 动画
-                patrolspeed = 0f;
+                patrolspeed = 0.5f;
                 break;
-            //case 3:
-            //    animator11.SetTrigger("WALK"); // 触发 CRAWL 动画
-            //    break;
+            case 3:
+               animator11.SetTrigger("WALK"); // 触发 CRAWL 动画
+               break;
         }
     }
         public void ChangeState(EnemyState newState)
@@ -88,7 +91,7 @@ public class EnemyAI : MonoBehaviour
 
     public void StartPatrolling()
     {
-        ;
+        
         agent.speed = patrolspeed;
         if (patrolPoints == null || patrolPoints.Length == 0)
         {
@@ -101,7 +104,9 @@ public class EnemyAI : MonoBehaviour
 
     public void Patrol()
     {
-       
+
+     
+
         // 检查是否到达当前巡逻目标
         if (Vector3.Distance(transform.position, patrolTarget) <1f)
         {
@@ -201,6 +206,11 @@ public class EnemyAI : MonoBehaviour
         Debug.Log("敌人死亡！");
         agent.isStopped = true; // 停止导航
         StopAllCoroutines(); // 停止所有协程
+        EnemyManager enemyManager = FindObjectOfType<EnemyManager>();
+        if (enemyManager != null)
+        {
+            enemyManager.enemydie();
+        }
 
         // 禁用敌人的碰撞体和其他组件
         Collider[] colliders = GetComponents<Collider>();

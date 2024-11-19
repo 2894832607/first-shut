@@ -16,8 +16,9 @@ namespace playheart111
         public Camera diecamera;
         public Camera playerCamera1; // 玩家相机
         public Camera playerCamera2; // 玩家相机
-        public TextMeshProUGUI deathMessage1; // 死亡消息文本
-        public TextMeshProUGUI deathMessage2; // 死亡消息文本
+        public Camera playerCamera3; // 玩家相机
+        //public TextMeshProUGUI deathMessage1; // 死亡消息文本
+        //public TextMeshProUGUI deathMessage2; // 死亡消息文本
         public GameObject weapon; // 武器游戏物体
         public float overlayDuration = 0.5f; // 颜色持续时间
         public float overlayFadeSpeed = 2f; // 颜色淡出速度
@@ -34,10 +35,11 @@ namespace playheart111
                 color.a = 0;
                 damageOverlay.color = color; // 初始化时隐藏覆盖层
             }
-            if (deathMessage1 != null)
-            {
-                deathMessage1.gameObject.SetActive(false); // 初始化时隐藏死亡消息
-            }
+            diecamera.gameObject.SetActive(false); // 显示死亡相机
+            //if (deathMessage1 != null)
+            //{
+            //    deathMessage1.gameObject.SetActive(false); // 初始化时隐藏死亡消息
+            //}
         }
 
         void Update()
@@ -108,14 +110,15 @@ namespace playheart111
         {
             Debug.Log("玩家死亡！");
             isDead = true; // 设置玩家死亡标志位
-            if (deathMessage1 != null)
-            {
+            
+           
                 diecamera.gameObject.SetActive(true); // 显示死亡相机
                 playerCamera1.gameObject.SetActive(false); // 禁用玩家相机
                 playerCamera2.gameObject.SetActive(false); // 禁用玩家相机
-                deathMessage1.gameObject.SetActive(true); // 显示死亡消息
-                deathMessage2.gameObject.SetActive(true); // 显示死亡消息
-            }
+                playerCamera3.gameObject.SetActive(false); // 禁用玩家相机
+                //deathMessage1.gameObject.SetActive(true); // 显示死亡消息
+                //deathMessage2.gameObject.SetActive(true); // 显示死亡消息
+            
             if (weapon != null)
             {
                 weapon.SetActive(false); // 禁用武器游戏物体
