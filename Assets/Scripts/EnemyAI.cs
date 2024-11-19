@@ -17,7 +17,7 @@ public class EnemyAI : MonoBehaviour
 
     public float patrolRadius = 2f; // Ñ²Âß·¶Î§°ë¾¶
     private Vector3 patrolTarget; // µ±Ç°Ñ²ÂßÄ¿±ê
-    public float patrolspeed = 2f;
+    public float patrolspeed = 1f;
     public float chasespeed = 6f;
     public float attackDamage = 10f; // ¹¥»÷ÉËº¦
     public float attackrange = 4f; // ¹¥»÷·¶Î§
@@ -32,8 +32,9 @@ public class EnemyAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         ChangeState(new PatrolState()); // ³õÊ¼×´Ì¬ÎªÑ²Âß
         animator11 = GetComponent<Animator>();
-   
+        SetRandomInitialAnimation();
     }
+
 
     void Update()
     {
@@ -44,7 +45,29 @@ public class EnemyAI : MonoBehaviour
         IsPlayerInAttackRange();
     }
 
-    public void ChangeState(EnemyState newState)
+    private void SetRandomInitialAnimation()
+    {
+        int randomAnimation = Random.Range(0, 3); // Ëæ»úÑ¡Ôñ 0, 1, »ò 2
+        switch (randomAnimation)
+        {
+            case 0:
+                animator11.SetTrigger("BITE1"); // ´¥·¢ BITE1 ¶¯»­
+                patrolspeed = 0f;
+                break;
+            case 1:
+                animator11.SetTrigger("BITE2"); // ´¥·¢ BITE2 ¶¯»­
+                patrolspeed = 0f;
+                break;
+            case 2:
+                animator11.SetTrigger("CRAWL"); // ´¥·¢ CRAWL ¶¯»­
+                patrolspeed = 0f;
+                break;
+            //case 3:
+            //    animator11.SetTrigger("WALK"); // ´¥·¢ CRAWL ¶¯»­
+            //    break;
+        }
+    }
+        public void ChangeState(EnemyState newState)
     {
         currentState?.Exit(this); // ÍË³öµ±Ç°×´Ì¬
         currentState = newState; // ÇÐ»»µ½ÐÂ×´Ì¬
