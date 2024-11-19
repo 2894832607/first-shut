@@ -14,7 +14,7 @@ public class EnemyAI : MonoBehaviour
     private int currentPatrolIndex; // 当前巡逻点索引
 
     public float detectionRange = 10f; // 侦测范围
-    public float attackRange = 2f; // 攻击范围
+    //public float attackRange = 2f; // 攻击范围
 
     public float patrolRadius = 2f; // 巡逻范围半径
     private Vector3 patrolTarget; // 当前巡逻目标
@@ -27,7 +27,7 @@ public class EnemyAI : MonoBehaviour
     private bool isAttacking = false; // 是否正在攻击
     public float enemyhealth = 100f;
     public Animator animator11;
-    public float dietime = 5f;
+    public float dietime = 2f;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -176,7 +176,7 @@ public class EnemyAI : MonoBehaviour
     public void AttackPlayer()
     {
         // 检查玩家是否在攻击范围内
-        if (Vector3.Distance(transform.position, player.position) <= attackRange)
+        if (Vector3.Distance(transform.position, player.position) <= attackrange)
         {
             // 假设玩家有一个 playheart 脚本
             playheart playerHealth = player.GetComponent<playheart>();
@@ -239,9 +239,9 @@ public class EnemyAI : MonoBehaviour
     }
 
     private IEnumerator FlashRed()
-    {
+    { 
         ChangeColor(Color.red*0.4f); // 变红
-        yield return new WaitForSeconds(0.8f); // 等待0.1秒
+        yield return new WaitForSeconds(0.5f); // 等待0.1秒
         ChangeColor(Color.white); // 恢复原来的颜色
     }
 
