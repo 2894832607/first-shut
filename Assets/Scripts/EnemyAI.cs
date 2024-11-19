@@ -240,8 +240,8 @@ public class EnemyAI : MonoBehaviour
 
     private IEnumerator FlashRed()
     {
-        ChangeColor(Color.red); // 变红
-        yield return new WaitForSeconds(0.1f); // 等待0.1秒
+        ChangeColor(Color.red*0.4f); // 变红
+        yield return new WaitForSeconds(0.8f); // 等待0.1秒
         ChangeColor(Color.white); // 恢复原来的颜色
     }
 

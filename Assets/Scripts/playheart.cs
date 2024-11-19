@@ -92,7 +92,7 @@ namespace playheart111
         private IEnumerator DamageOverlayCoroutine()
         {
             var color = damageOverlay.color;
-            color.a = 0.3f;
+            color.a = 0.1f;
             damageOverlay.color = color; // 设置覆盖层为红色
 
             yield return new WaitForSeconds(overlayDuration); // 等待指定时间
