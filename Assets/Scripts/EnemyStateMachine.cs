@@ -47,7 +47,8 @@ public class ChaseState : EnemyState
         {   
             enemy.ChangeState(new PatrolState()); // ÇÐ»»»ØÑ²Âß×´Ì¬
             enemy.animator11.SetTrigger("WALK");
-
+            enemy.bite1 = false;
+            enemy.bite2 = false;
         }
         if (enemy.IsPlayerInAttackRange())
         {
@@ -79,7 +80,8 @@ public class AttackState : EnemyState
             enemy.StopAttacking();
             enemy.ChangeState(new PatrolState()); // ÇÐ»»»ØÑ²Âß×´Ì¬
             enemy.animator11.SetTrigger("WALK");
-
+            enemy.bite1 = false;
+            enemy.bite2 = false;
         }
     }
 

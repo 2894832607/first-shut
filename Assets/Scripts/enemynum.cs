@@ -8,7 +8,7 @@ namespace enemydie111
 {
     public class EnemyManager : MonoBehaviour
     {
-        public int enemynum = 17;
+        public int enemynum = 1 ;
         public GameObject victoryPanel; // 胜利面板（UI）
         //public AudioClip victorySound; // 胜利音效
         private AudioSource audioSource;

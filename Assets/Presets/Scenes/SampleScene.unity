@@ -184,8 +184,8 @@ MonoBehaviour:
   m_text: A biochemical crisis has erupted in space, and your mission is to eliminate
     all zombies and monsters.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0f0bf716f26dd144ada58ec2fbc7a45, type: 2}
-  m_sharedMaterial: {fileID: 24202990792880216, guid: d0f0bf716f26dd144ada58ec2fbc7a45, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 593d5c846dd58c948b1aa7733d96164f, type: 2}
+  m_sharedMaterial: {fileID: -4494288748125603751, guid: 593d5c846dd58c948b1aa7733d96164f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23.3
+  m_fontSize: 21.85
   m_fontSizeBase: 35.46
   m_fontWeight: 400
   m_enableAutoSizing: 1

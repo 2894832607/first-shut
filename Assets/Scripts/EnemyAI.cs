@@ -27,6 +27,8 @@ public class EnemyAI : MonoBehaviour
     private bool isAttacking = false; // 是否正在攻击
     public float enemyhealth = 100f;
     public Animator animator11;
+    public bool bite1 = false;
+    public bool bite2 = false;
     public float dietime = 2f;
     void Start()
     {
@@ -55,15 +57,18 @@ public class EnemyAI : MonoBehaviour
         {
             case 0:
                 animator11.SetTrigger("BITE1"); // 触发 BITE1 动画
-                patrolspeed = 0f;
+                 bite1 = true;
+               patrolspeed = 0f;
                 break;
             case 1:
                 animator11.SetTrigger("BITE2"); // 触发 BITE2 动画
                 patrolspeed = 0f;
+                bite2 = true;
                 break;
             case 2:
                 animator11.SetTrigger("CRAWL"); // 触发 CRAWL 动画
                 patrolspeed = 0.5f;
+
                 break;
             case 3:
                animator11.SetTrigger("WALK"); // 触发 CRAWL 动画
@@ -105,17 +110,19 @@ public class EnemyAI : MonoBehaviour
     public void Patrol()
     {
 
-     
 
-        // 检查是否到达当前巡逻目标
-        if (Vector3.Distance(transform.position, patrolTarget) <1f)
+        if (bite1 == false && bite2 == false)
         {
-            SetRandomPatrolTarget(); // 到达目标后生成新的随机目标
+            // 检查是否到达当前巡逻目标
+            if (Vector3.Distance(transform.position, patrolTarget) < 1f)
+            {
+                SetRandomPatrolTarget(); // 到达目标后生成新的随机目标
 
+            }
+
+            // 使用 NavMeshAgent 移动到目标位置
+            agent.SetDestination(patrolTarget);
         }
-
-        // 使用 NavMeshAgent 移动到目标位置
-        agent.SetDestination(patrolTarget);
     }
 
     private void SetRandomPatrolTarget()
@@ -240,8 +247,8 @@ public class EnemyAI : MonoBehaviour
 
     private IEnumerator FlashRed()
     { 
-        ChangeColor(Color.red*0.4f); // 变红
-        yield return new WaitForSeconds(0.5f); // 等待0.1秒
+        ChangeColor(Color.red*0.45f); // 变红
+        yield return new WaitForSeconds(0.1f); // 等待0.1秒
         ChangeColor(Color.white); // 恢复原来的颜色
     }
 

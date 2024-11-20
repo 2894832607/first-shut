@@ -17,9 +17,8 @@ MonoBehaviour:
   materialHashCode: 245399596
   m_Version: 1.1.0
   m_SourceFontFileGUID: 5c63dd25dbd325e48940c45d715adc75
-  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 5c63dd25dbd325e48940c45d715adc75,
-    type: 3}
-  m_SourceFontFile: {fileID: 0}
+  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 5c63dd25dbd325e48940c45d715adc75, type: 3}
+  m_SourceFontFile: {fileID: 12800000, guid: 5c63dd25dbd325e48940c45d715adc75, type: 3}
   m_AtlasPopulationMode: 0
   m_FaceInfo:
     m_FaceIndex: 0
@@ -27,6 +26,7 @@ MonoBehaviour:
     m_StyleName: Bold
     m_PointSize: 77
     m_Scale: 1
+    m_UnitsPerEM: 1000
     m_LineHeight: 110.341
     m_AscentLine: 73.766
     m_CapLine: 50
@@ -2623,7 +2623,7 @@ MonoBehaviour:
     Padding: 0
     AtlasWidth: 0
     AtlasHeight: 0
-  atlas: {fileID: 0}
+  atlas: {fileID: 4735465959632702876}
   m_AtlasWidth: 512
   m_AtlasHeight: 512
   m_AtlasPadding: 5
@@ -2644,14 +2644,14 @@ MonoBehaviour:
     packingMode: 0
     atlasWidth: 512
     atlasHeight: 512
-    characterSetSelectionMode: 0
-    characterSequence: 32 - 126, 160, 8203, 8230, 9633
-    referencedFontAssetGUID: 
+    characterSetSelectionMode: 6
+    characterSequence: 20-7E,A0,200B,2026
+    referencedFontAssetGUID: d0f0bf716f26dd144ada58ec2fbc7a45
     referencedTextAssetGUID: 
     fontStyle: 0
     fontStyleModifier: 0
     renderMode: 4165
-    includeFontFeatures: 0
+    includeFontFeatures: 1
   m_FontWeightTable:
   - regularTypeface: {fileID: 0}
     italicTypeface: {fileID: 0}
@@ -2688,7 +2688,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Teko-Bold SDF Material
-  m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
+  m_Shader: {fileID: 4800000, guid: fe393ace9b354375a9cb14cdbbc28be4, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -2737,6 +2737,7 @@ Material:
     - _CullMode: 0
     - _Diffuse: 0.5
     - _FaceDilate: -0.3
+    - _FaceShininess: 0
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
     - _GlowInner: 0.05
@@ -2747,10 +2748,12 @@ Material:
     - _LightAngle: 3.1416
     - _MaskSoftnessX: 0
     - _MaskSoftnessY: 0
+    - _OutlineShininess: 0
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
     - _OutlineWidth: 0
+    - _Padding: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.8333333
@@ -2785,6 +2788,7 @@ Material:
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _SpecColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_BuildTextureStacks: []
@@ -2810,7 +2814,8 @@ Texture2D:
   m_MipCount: 1
   m_IsReadable: 0
   m_IsPreProcessed: 0
-  m_IgnoreMasterTextureLimit: 0
+  m_IgnoreMipmapLimit: 0
+  m_MipmapLimitGroupName: 
   m_StreamingMipmaps: 0
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0

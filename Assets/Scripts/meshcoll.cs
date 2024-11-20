@@ -3,6 +3,7 @@ using UnityEditor;
 
 public class  meshcoll  : MonoBehaviour
 {
+#if UNITY_EDITOR
     [MenuItem("Tools/Add Mesh Colliders")]
     static void AddMeshCollidersToAll()
     {
@@ -25,4 +26,5 @@ public class  meshcoll  : MonoBehaviour
             }
         }
     }
+#endif
 }
